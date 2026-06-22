@@ -1,51 +1,18 @@
-# Failure Analysis — Lab 18: Production RAG
+# Phân tích Failure Analysis (Bottom-5)
 
-**Nhóm:** [Tên nhóm]  
-**Thành viên:** [Tên 1 → M1] · [Tên 2 → M2] · [Tên 3 → M3] · [Tên 4 → M4]
+Phân tích 5 câu hỏi có kết quả tệ nhất dựa trên Evaluation Pipeline bằng RAGAS.
 
----
+| Câu hỏi | Metric tệ nhất | Điểm trung bình | Chẩn đoán (Diagnosis) | Đề xuất sửa chữa (Suggested Fix) |
+|---------|---------------|------|----------------------|-----------------------------------|
+| (Sẽ được điền sau khi có ragas_report.json) | | | | |
+| (Sẽ được điền sau khi có ragas_report.json) | | | | |
+| (Sẽ được điền sau khi có ragas_report.json) | | | | |
+| (Sẽ được điền sau khi có ragas_report.json) | | | | |
+| (Sẽ được điền sau khi có ragas_report.json) | | | | |
 
-## RAGAS Scores
-
-| Metric | Naive Baseline | Production | Δ |
-|--------|---------------|------------|---|
-| Faithfulness | | | |
-| Answer Relevancy | | | |
-| Context Precision | | | |
-| Context Recall | | | |
-
-## Bottom-5 Failures
-
-### #1
-- **Question:**
-- **Expected:**
-- **Got:**
-- **Worst metric:**
-- **Error Tree:** Output sai → Context đúng? → Query OK? →
-- **Root cause:**
-- **Suggested fix:**
-
-### #2
-(copy template)
-
-### #3
-(copy template)
-
-### #4
-(copy template)
-
-### #5
-(copy template)
-
-## Case Study (cho presentation)
-
-**Question chọn phân tích:**
-
-**Error Tree walkthrough:**
-1. Output đúng? →
-2. Context đúng? →
-3. Query rewrite OK? →
-4. Fix ở bước:
-
-**Nếu có thêm 1 giờ, sẽ optimize:**
--
+## Error Tree Diagnostic
+Dựa theo cây lỗi sau:
+- **Faithfulness thấp**: LLM bị hallucination → Cần siết chặt prompt, giảm nhiệt độ (temperature).
+- **Context Recall thấp**: Truy xuất thiếu chunk quan trọng → Cần cải thiện thuật toán chunking hoặc bổ sung BM25.
+- **Context Precision thấp**: Lấy lên quá nhiều chunk không liên quan → Cần cải thiện thuật toán Reranking hoặc metadata filter.
+- **Answer Relevancy thấp**: Câu trả lời không khớp với câu hỏi → Cần thiết kế lại prompt template.
